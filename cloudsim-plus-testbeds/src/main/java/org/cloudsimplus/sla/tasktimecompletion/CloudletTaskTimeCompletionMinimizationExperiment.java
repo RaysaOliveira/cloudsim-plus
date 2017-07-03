@@ -274,8 +274,8 @@ public final class CloudletTaskTimeCompletionMinimizationExperiment extends Simu
     @Override
     protected void createBrokers() {
         super.createBrokers();
-      //  getFirstBroker().setVmMapper(this::selectVmForCloudlet);
-      //  getFirstBroker().setCloudletComparator(sortCloudletsByLengthReversed);
+        getFirstBroker().setVmMapper(this::selectVmForCloudlet);
+        getFirstBroker().setCloudletComparator(sortCloudletsByLengthReversed);
 
         try {
             readTheSlaContracts();
@@ -295,6 +295,9 @@ public final class CloudletTaskTimeCompletionMinimizationExperiment extends Simu
     /**
      * Selects a VM to run a Cloudlet which minimizes the Cloudlet completion
      * time.
+     *
+     * It's a modified implementation of the Worst Fit Decreasing Algorithm.
+     * We called Priority Worst Fit Decreasing
      *
      * @param cl the Cloudlet to select a VM to
      * @return the selected Vm
