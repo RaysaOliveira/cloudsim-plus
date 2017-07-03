@@ -276,6 +276,9 @@ public class CloudletTaskTimeCompletionWorkLoadMinimizationExperiment extends Si
      * Selects a VM to run a Cloudlet that will minimize the Cloudlet response
      * time.
      *
+     * Is a modified implementation of the Worst Fit Decreasing Algorithm.
+     * We called Priority Worst Fit Decreasing
+     *
      * @param cl the Cloudlet to select a VM to
      * @return the selected Vm
      */
