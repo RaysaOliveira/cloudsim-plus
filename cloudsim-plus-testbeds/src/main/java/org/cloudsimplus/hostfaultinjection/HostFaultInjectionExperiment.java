@@ -95,7 +95,7 @@ public final class HostFaultInjectionExperiment extends SimulationExperiment {
      * Number of Hosts to create for each Datacenter. The number of elements in
      * this array defines the number of Datacenters to be created.
      */
-    private static final int HOSTS = 30;
+    private static final int HOSTS = 10;
     public static final String SLA_CONTRACTS_LIST = "sla-files.txt";
 
     /*The average number of failures expected to happen each hour

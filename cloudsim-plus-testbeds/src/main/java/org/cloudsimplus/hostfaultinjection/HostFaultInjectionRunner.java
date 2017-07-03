@@ -114,7 +114,7 @@ class HostFaultInjectionRunner extends ExperimentRunner<HostFaultInjectionExperi
      */
     public static void main(String[] args) {
         new HostFaultInjectionRunner(true, 1475098589732L)
-            .setSimulationRuns(400)
+            .setSimulationRuns(1200)
             .setNumberOfBatches(5) //Comment this or set to 0 to disable the "Batch Means Method"
             .setVerbose(true)
             .run();

@@ -154,6 +154,10 @@ public abstract class ExperimentRunner<T extends SimulationExperiment> implement
             setSimulationRuns(getSimulationRuns() + 1);
         }
 
+        if (getNumberOfBatches() % 2 != 0) {
+            setNumberOfBatches(getNumberOfBatches()+1);
+        }
+
         if (getSimulationRuns() % getNumberOfBatches()  != 0) {
             setSimulationRunsAsMultipleOfBatchNumber();
         }
@@ -225,13 +229,14 @@ public abstract class ExperimentRunner<T extends SimulationExperiment> implement
             return samples;
         }
 
+        System.out.printf("Computing batch means for %d initial samples\n", samples.size());
         final List<Double> batchMeans = new ArrayList<>(getNumberOfBatches());
         for (int i = 0; i < getNumberOfBatches(); i++) {
             batchMeans.add(getBatchAverage(samples, i));
         }
 
         System.out.printf(
-                "\tBatch Means Method applied. The number of samples was reduced to %d after computing the mean for each batch.\n", getNumberOfBatches());
+                "\tBatch Means Method applied. The number of samples was reduced to %d after computing the mean for each batch.\n", batchMeans.size());
 
         return batchMeans;
     }

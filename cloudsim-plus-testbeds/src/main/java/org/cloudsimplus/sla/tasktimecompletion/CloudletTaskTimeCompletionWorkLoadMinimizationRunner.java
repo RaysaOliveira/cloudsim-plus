@@ -41,10 +41,10 @@ public class CloudletTaskTimeCompletionWorkLoadMinimizationRunner extends Experi
      * Different lengths that will be randomly assigned to created Cloudlets.
      */
    // static final long[] CLOUDLET_LENGTHS = {20000, 30000, 40000, 50000};
-    static final int[] VM_PES = {2, 4, 6};
-    static final int[] VM_MIPS = {10000, 15000, 28000};
-    static final int VMS = 30;
-    static final int CLOUDLETS = 300;
+    static final int[] VM_PES = {1, 2, 4, 8, 10};
+    static final int[] VM_MIPS = {1000, 15000, 20000, 28000};
+    static final int VMS = 80;
+    static final int CLOUDLETS = 480;
 
     /**
      * The TaskTimeCompletion average for all the experiments.
@@ -74,7 +74,7 @@ public class CloudletTaskTimeCompletionWorkLoadMinimizationRunner extends Experi
      */
     public static void main(String[] args) {
         new CloudletTaskTimeCompletionWorkLoadMinimizationRunner(true, 1475098589732L)
-                .setSimulationRuns(300)
+                .setSimulationRuns(1200)
                 .setNumberOfBatches(5) //Comment this or set to 0 to disable the "Batch Means Method"
                 .setVerbose(true)
                 .run();
@@ -155,7 +155,7 @@ public class CloudletTaskTimeCompletionWorkLoadMinimizationRunner extends Experi
         double lower = stats.getMean() - intervalSize;
         double upper = stats.getMean() + intervalSize;
         System.out.printf(
-                "\tTaskTimeCompletion mean 95%% Confidence Interval: %.2f ∓ %.2f, that is [%.2f to %.2f]\n",
+                "\tTaskTimeCompletion mean 95%% Confidence Interval: %.4f ∓ %.4f, that is [%.4f to %.4f]\n",
                 stats.getMean(), intervalSize, lower, upper);
         System.out.printf("\tStandard Deviation: %.2f \n", stats.getStandardDeviation());
     }
