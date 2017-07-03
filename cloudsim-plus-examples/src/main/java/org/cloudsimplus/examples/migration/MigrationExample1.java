@@ -193,6 +193,7 @@ public final class MigrationExample1 {
 
         hostList.stream().filter(h -> h.getId() <= 2).forEach(this::printHostHistory);
         Log.printConcatLine(getClass().getSimpleName(), " finished!");
+        
     }
 
     private void printHostHistory(PowerHost h) {
